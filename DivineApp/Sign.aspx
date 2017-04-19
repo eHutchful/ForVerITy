@@ -45,31 +45,8 @@
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="Default.aspx">VerITy Solutions</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <%--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a href="Sign.aspx">Log In</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#about">About</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#contact">Contact Us</a>
-                    </li>
-                </ul>
-            </div>--%>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
+            </div>     
+            </div>       
     </nav>
     
         <!--Introduction-->
@@ -96,7 +73,14 @@
         <div class="footer-above">
             <div class="container">
                 <div class="row">
+                    <div class="footer-col col-md-4"></div>
                     <div class="footer-col col-md-4">
+                        <h3>Location</h3>
+                        <p>Kumasi Business Incubator
+                            <br>Kumasi, Ghana</p>
+                    </div>
+                    <div class="footer-col col-md-4"></div>
+                    <%--<div class="footer-col col-md-4">
                         <h3>Location</h3>
                         <p>Kumasi Business Incubator
                             <br>Kumasi, Ghana</p>
@@ -124,7 +108,7 @@
                     <div class="footer-col col-md-4">
                         <h3>Divine Verities</h3>
                         <p>Divine Verities is our flagship product. Easy to use and available on all mobile platforms <a href="#">Download apk here</a>.</p>
-                    </div>
+                    </div>--%>
                 </div>
             </div>
         </div>

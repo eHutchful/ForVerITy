@@ -54,8 +54,8 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a href="Sign.aspx">Log In</a>
-                    </li>
+                        <a href="#page-top">Home</a>
+                    </li>                    
                     <li class="page-scroll">
                         <a href="#portfolio">Products</a>
                     </li>
@@ -64,6 +64,9 @@
                     </li>
                     <li class="page-scroll">
                         <a href="#contact">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="Sign.aspx">Log In</a>
                     </li>
                 </ul>
             </div>
@@ -93,7 +96,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Portfolio</h2>
+                    <h2>Products</h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -247,12 +250,14 @@
         <div class="footer-above">
             <div class="container">
                 <div class="row">
+                    <div class="footer-col col-md-4"></div>
                     <div class="footer-col col-md-4">
                         <h3>Location</h3>
                         <p>Kumasi Business Incubator
                             <br>Kumasi, Ghana</p>
                     </div>
-                    <div class="footer-col col-md-4">
+                    <div class="footer-col col-md-4"></div>
+                    <%--<div class="footer-col col-md-4">
                         <h3>Around the Web</h3>
                         <ul class="list-inline">
                             <li>
@@ -271,11 +276,11 @@
                                 <a href="#" class="btn-social btn-outline"><span class="sr-only">Dribble</span><i class="fa fa-fw fa-dribbble"></i></a>
                             </li>
                         </ul>
-                    </div>
-                    <div class="footer-col col-md-4">
-                        <h3>Divine Verities</h3>
-                        <p>Divine Verities is our flagship product. Easy to use and available on all mobile platforms <a href="#">Download apk here</a>.</p>
-                    </div>
+                    </div>--%>
+                    <%--<div class="footer-col col-md-4">
+                        <h3>Verity Solutions</h3>
+                        <p>For all your solutions on all platforms <a href="#">Contact us</a>.</p>
+                    </div>--%>
                 </div>
             </div>
         </div>
@@ -283,7 +288,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <%--Copyright--%> &copy; VerITy Solutions 2017
+                        <%--Copyright--%> &copy; VerITy Solutions, 2017
                     </div>
                 </div>
             </div>
@@ -540,3 +545,6 @@
     <script src="js/freelancer.min.js"></script>
 </body>
 </html>
+
+<!--color-->
+success:#18BC9C
