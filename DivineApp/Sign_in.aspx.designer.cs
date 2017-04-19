@@ -22,22 +22,22 @@ namespace DivineApp {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Uname control.
+        /// u_name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Uname;
+        protected global::System.Web.UI.WebControls.TextBox u_name;
         
         /// <summary>
-        /// Pass control.
+        /// pass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Pass;
+        protected global::System.Web.UI.WebControls.TextBox pass;
         
         /// <summary>
         /// Button1 control.

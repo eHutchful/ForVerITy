@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Sign.aspx.cs" Inherits="DivineApp.Sign" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Sign_up.aspx.cs" Inherits="DivineApp.Sign_up" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Divine Verities|Sign In</title>
+    <title>Divine Verities|Sign Up</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,11 +32,16 @@
     <![endif]-->
 
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .now{
+            margin-top:70px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-
-        <!-- Navigation -->
+    <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -56,15 +61,23 @@
         <p style="text-align:center;color:white">Your Podcasts live here!</p>
 
         <!--main content-->
-        <div class="form">
+        <div class="form now">
             <div class="login-form">
-      <%--<input type="text" placeholder="username"/>--%>
-            <asp:TextBox ID="Uname" runat="server" placeholder="USERNAME"></asp:TextBox>
-      <%--<input type="password" placeholder="password"/>--%>
-            <asp:TextBox ID="Pass" runat="server" placeholder="PASSWORD"></asp:TextBox>
-      <%--<button>login</button>--%>
+            <asp:TextBox ID="company" runat="server" placeholder="Company Name"></asp:TextBox>
+            <asp:TextBox ID="f_name" runat="server" placeholder="First Name"></asp:TextBox>
+            <asp:TextBox ID="l_name" runat="server" placeholder="Last Name"></asp:TextBox>
+            <asp:TextBox ID="email" runat="server" placeholder="Email"></asp:TextBox>
+            <asp:TextBox ID="c_address" runat="server" placeholder="Contact Address"></asp:TextBox>
+            <asp:TextBox ID="location" runat="server" placeholder="Location"></asp:TextBox>
+      
+            <asp:TextBox ID="u_name" runat="server" placeholder="Username"></asp:TextBox>
+      
+            <asp:TextBox ID="pass" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
+            <asp:TextBox ID="c_pass" runat="server" placeholder="Confirm Password" TextMode="Password"></asp:TextBox>
+      
             <asp:Button ID="Button1" runat="server" Text="LOGIN" style="background: #00597d;color:white;"/>
-      <%--<p class="message">Not registered? <a href="#">Create an account</a></p>--%>
+      
+                <p class="message">Already registered? <a href="Sign_in.aspx">Sign In</a></p>
     </div>
         </div>
     </div>
@@ -139,5 +152,8 @@
 
     <!-- Theme JavaScript -->
     <script src="js/freelancer.min.js"></script>
+
+    <!--Toggle Form-->
+    <script src="js/index.js"></script>
 </body>
 </html>
