@@ -13,5 +13,11 @@ namespace DivineApp
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string userName = Uname.Text;
+            string password = Pass.Text;
+        }
     }
 }

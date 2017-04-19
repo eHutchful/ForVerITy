@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Sign.aspx.cs" Inherits="DivineApp.Sign" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Sign.aspx.cs" Inherits="DivineApp.Sign" UnobtrusiveValidationMode="None" %>
 
 <!DOCTYPE html>
 
@@ -60,10 +60,15 @@
             <div class="login-form">
       <%--<input type="text" placeholder="username"/>--%>
             <asp:TextBox ID="Uname" runat="server" placeholder="USERNAME"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="UnameValidator" 
+                runat="server" Text="Username Required!" ControlToValidate="Uname" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
       <%--<input type="password" placeholder="password"/>--%>
             <asp:TextBox ID="Pass" runat="server" placeholder="PASSWORD"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="PassValidator" 
+                runat="server" Text="Password Required" ControlToValidate="Pass" Font-Bold="True" ForeColor="Red">
+            </asp:RequiredFieldValidator>
       <%--<button>login</button>--%>
-            <asp:Button ID="Button1" runat="server" Text="LOGIN" style="background: #00597d;color:white;"/>
+            <asp:Button ID="Button1" runat="server" Text="LOGIN" style="background: #00597d;color:white;" OnClick="Button1_Click"/>
       <%--<p class="message">Not registered? <a href="#">Create an account</a></p>--%>
     </div>
         </div>
