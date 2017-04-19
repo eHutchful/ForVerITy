@@ -66,7 +66,8 @@
             <asp:TextBox ID="company" runat="server" placeholder="Company Name"></asp:TextBox>
             <asp:TextBox ID="f_name" runat="server" placeholder="First Name"></asp:TextBox>
             <asp:TextBox ID="l_name" runat="server" placeholder="Last Name"></asp:TextBox>
-            <asp:TextBox ID="email" runat="server" placeholder="Email"></asp:TextBox>
+            <asp:TextBox ID="email" runat="server" placeholder="Email" TextMode="Email"></asp:TextBox>
+            <asp:TextBox ID="phone" runat="server" placeholder="Phone" TextMode="Phone"></asp:TextBox>
             <asp:TextBox ID="c_address" runat="server" placeholder="Contact Address"></asp:TextBox>
             <asp:TextBox ID="location" runat="server" placeholder="Location"></asp:TextBox>
       
