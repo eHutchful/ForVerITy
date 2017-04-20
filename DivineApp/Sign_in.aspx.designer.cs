@@ -31,6 +31,15 @@ namespace DivineApp {
         protected global::System.Web.UI.WebControls.TextBox u_name;
         
         /// <summary>
+        /// unameValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator unameValidator;
+        
+        /// <summary>
         /// pass control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace DivineApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox pass;
+        
+        /// <summary>
+        /// passValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator passValidator;
         
         /// <summary>
         /// Button1 control.

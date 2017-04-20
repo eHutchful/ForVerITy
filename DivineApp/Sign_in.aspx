@@ -66,8 +66,10 @@
             <div class="login-form">
       
             <asp:TextBox ID="u_name" runat="server" placeholder="Username"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="unameValidator" runat="server" Text="Username Required!" ControlToValidate="u_name" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
       
             <asp:TextBox ID="pass" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="passValidator" runat="server" Text="Password Required!" ControlToValidate="pass" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
       
             <asp:Button ID="Button1" runat="server" Text="LOGIN" style="background: #00597d;color:white;"/>
       <p class="message">Not registered? <a href="Sign_up.aspx">Create an account</a></p>
