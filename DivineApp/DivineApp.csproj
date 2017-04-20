@@ -71,6 +71,7 @@
     <Content Include="js\freelancer.js" />
     <Content Include="js\index.js" />
     <Content Include="js\jqBootstrapValidation.js" />
+    <Content Include="Sign_up.aspx" />
     <Content Include="vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="vendor\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="vendor\bootstrap\fonts\glyphicons-halflings-regular.woff" />
@@ -154,7 +155,7 @@
     <Content Include="js\freelancer.min.js" />
     <Content Include="ResetPassword.aspx" />
     <Content Include="SentMail.aspx" />
-    <Content Include="Sign.aspx" />
+    <Content Include="Sign_in.aspx" />
     <Content Include="Dashboard.aspx" />
     <Content Include="vendor\bootstrap\css\bootstrap.css" />
     <Content Include="vendor\bootstrap\css\bootstrap.min.css" />
@@ -322,6 +323,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sign_up.aspx.cs">
+      <DependentUpon>Sign_up.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sign_up.aspx.designer.cs">
+      <DependentUpon>Sign_up.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Upload.aspx.cs">
       <DependentUpon>Upload.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -351,12 +359,12 @@
     <Compile Include="SentMail.aspx.designer.cs">
       <DependentUpon>SentMail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Sign.aspx.cs">
-      <DependentUpon>Sign.aspx</DependentUpon>
+    <Compile Include="Sign_in.aspx.cs">
+      <DependentUpon>Sign_in.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Sign.aspx.designer.cs">
-      <DependentUpon>Sign.aspx</DependentUpon>
+    <Compile Include="Sign_in.aspx.designer.cs">
+      <DependentUpon>Sign_in.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
