@@ -1,10 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Sign_up.aspx.cs" Inherits="DivineApp.Sign_up" %>
+﻿1<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Sign_up.aspx.cs" Inherits="DivineApp.Sign_up" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Divine Verities|Sign Up</title>
+<head runat="server">Divine Verities|Sign Up</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -76,9 +75,9 @@
             <asp:TextBox ID="pass" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
             <asp:TextBox ID="c_pass" runat="server" placeholder="Confirm Password" TextMode="Password"></asp:TextBox>
       
-            <asp:Button ID="Button1" runat="server" Text="LOGIN" style="background: #00597d;color:white;"/>
+            <asp:Button ID="Button1" runat="server" Text="LOGIN" style="background: #00597d;color:white;" OnClick="Button1_Click"/>
       
-                <p class="message">Already registered? <a href="Sign_in.aspx">Sign In</a></p>
+                <p class="message">Already registered? <a href="Sign_in.aspx">Sign Inspx">Sign In</a></p>
     </div>
         </div>
     </div>
