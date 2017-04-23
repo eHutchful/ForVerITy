@@ -1,4 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using DivineApp.Contexts;
+using DivineApp.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,7 +54,36 @@ namespace DivineApp
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            RegisterAsyncTask(new PageAsyncTask(register));
+            //RegisterAsyncTask(new PageAsyncTask(register));
+            var context = new MyContext();
+            var userStore = new UserStore<CompanyUser>(context);
+            
+            var manager = new UserManager<CompanyUser>(userStore);
+            var user = new CompanyUser()
+            {
+                UserName = u_name.Text,
+                Email = email.Text,
+                PhoneNumber= phone.Text,
+                Address = c_address.Text,
+                CompanyName = company.Text,
+                FirstName = f_name.Text,
+                LastName = l_name.Text,
+                Location = location.Text
+            };
+            IdentityResult result = manager.Create(user, pass.Text);
+            if (result.Succeeded)
+            {
+                StatusMessage.Text = string.Format("User {0} was created successfully!", user.UserName);
+                var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+                //download miscrosoft.owin.host.systemweb
+                var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+                authenticationManager.SignIn(new AuthenticationProperties() { }, userIdentity);
+                Response.Redirect("~/Sign_in.aspx");
+            }
+            else
+            {
+                StatusMessage.Text = result.Errors.FirstOrDefault();
+            }
         }
     }
 }

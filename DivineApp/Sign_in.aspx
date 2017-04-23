@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Sign_in.aspx.cs" Inherits="DivineApp.Sign" UnobtrusiveValidationMode="none"  Async="true"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Sign_in.aspx.cs" Inherits="DivineApp.Sign_in" UnobtrusiveValidationMode="none"  Async="true"%>
 
 <!DOCTYPE html>
 

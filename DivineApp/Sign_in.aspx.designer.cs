@@ -10,7 +10,7 @@
 namespace DivineApp {
     
     
-    public partial class Sign {
+    public partial class Sign_in {
         
         /// <summary>
         /// form1 control.

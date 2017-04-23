@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">Divine Verities|Sign Up</title>
+<head runat="server">
+Divine Verities|Sign Up</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -80,6 +81,7 @@
                 <p class="message">Already registered? <a href="Sign_in.aspx">Sign In</a></p>
     </div>
         </div>
+            <asp:Label ID="StatusMessage" runat="server" Text=""></asp:Label>
     </div>
          <!-- Footer -->
     <footer class="text-center">
