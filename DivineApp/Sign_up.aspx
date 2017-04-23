@@ -1,4 +1,4 @@
-﻿1<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Sign_up.aspx.cs" Inherits="DivineApp.Sign_up" %>
+﻿1<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Sign_up.aspx.cs" Inherits="DivineApp.Sign_up"  Async="true"%>
 
 <!DOCTYPE html>
 
@@ -77,7 +77,7 @@
       
             <asp:Button ID="Button1" runat="server" Text="LOGIN" style="background: #00597d;color:white;" OnClick="Button1_Click"/>
       
-                <p class="message">Already registered? <a href="Sign_in.aspx">Sign Inspx">Sign In</a></p>
+                <p class="message">Already registered? <a href="Sign_in.aspx">Sign In</a></p>
     </div>
         </div>
     </div>

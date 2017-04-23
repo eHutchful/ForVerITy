@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Sign_in.aspx.cs" Inherits="DivineApp.Sign" UnobtrusiveValidationMode="none" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Sign_in.aspx.cs" Inherits="DivineApp.Sign" UnobtrusiveValidationMode="none"  Async="true"%>
 
 <!DOCTYPE html>
 
@@ -71,7 +71,7 @@
             <asp:TextBox ID="pass" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="passValidator" runat="server" Text="Password Required!" ControlToValidate="pass" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
       
-            <asp:Button ID="Button1" runat="server" Text="LOGIN" style="background: #00597d;color:white;"/>
+            <asp:Button ID="Button1" runat="server" Text="LOGIN" style="background: #00597d;color:white;" OnClick="Button1_Click"/>
       <p class="message">Not registered? <a href="Sign_up.aspx">Create an account</a></p>
     </div>
         </div>
