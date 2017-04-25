@@ -129,6 +129,7 @@
     <Content Include="img\portfolio\safe.png" />
     <Content Include="img\portfolio\submarine.png" />
     <Content Include="img\profile.png" />
+    <Content Include="img\verITy.png" />
     <Content Include="js\contact_me.js" />
     <Content Include="js\freelancer.js" />
     <Content Include="js\index.js" />
