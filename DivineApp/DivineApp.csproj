@@ -203,6 +203,8 @@
     <Content Include="mail\contact_me.php" />
     <Content Include="package.json" />
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\veritysolutions - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\veritysolutions - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\veritysolutions - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
