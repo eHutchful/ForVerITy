@@ -85,7 +85,7 @@ Divine Verities|Sign Up</title>
     </div>
          <!-- Footer -->
     <footer class="text-center">
-        <div class="footer-above">
+        <%--<div class="footer-above">
             <div class="container">
                 <div class="row">
                     <div class="footer-col col-md-4"></div>
@@ -95,7 +95,7 @@ Divine Verities|Sign Up</title>
                             <br>Kumasi, Ghana</p>
                     </div>
                     <div class="footer-col col-md-4"></div>
-                    <%--<div class="footer-col col-md-4">
+                    <div class="footer-col col-md-4">
                         <h3>Location</h3>
                         <p>Kumasi Business Incubator
                             <br>Kumasi, Ghana</p>
@@ -123,10 +123,10 @@ Divine Verities|Sign Up</title>
                     <div class="footer-col col-md-4">
                         <h3>Divine Verities</h3>
                         <p>Divine Verities is our flagship product. Easy to use and available on all mobile platforms <a href="#">Download apk here</a>.</p>
-                    </div>--%>
+                    </div>
                 </div>
             </div>
-        </div>
+        </div>--%>
         <div class="footer-below">
             <div class="container">
                 <div class="row">

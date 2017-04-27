@@ -150,6 +150,7 @@
     <Content Include="img\portfolio\safe.png" />
     <Content Include="img\portfolio\submarine.png" />
     <Content Include="img\profile.png" />
+    <Content Include="img\verITy.png" />
     <Content Include="js\contact_me.js" />
     <Content Include="js\freelancer.js" />
     <Content Include="js\index.js" />
@@ -223,6 +224,8 @@
     <Content Include="mail\contact_me.php" />
     <Content Include="package.json" />
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\veritysolutions - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\veritysolutions - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\veritysolutions - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
