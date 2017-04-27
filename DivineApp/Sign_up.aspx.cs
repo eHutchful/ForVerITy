@@ -73,12 +73,26 @@ namespace DivineApp
             IdentityResult result = manager.Create(user, pass.Text);
             if (result.Succeeded)
             {
-                StatusMessage.Text = string.Format("User {0} was created successfully!", user.UserName);
-                var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
-                //download miscrosoft.owin.host.systemweb
-                var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
-                authenticationManager.SignIn(new AuthenticationProperties() { }, userIdentity);
-                Response.Redirect("~/Sign_in.aspx");
+                //StatusMessage.Text = string.Format("User {0} was created successfully!", user.UserName);
+                //var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+                ////download miscrosoft.owin.host.systemweb
+                //var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+                //authenticationManager.SignIn(new AuthenticationProperties() { }, userIdentity);
+                //Response.Redirect("~/Sign_in.aspx");
+                string code = manager.GenerateEmailConfirmationToken(user.Id);
+                string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
+                manager.SendEmail(user.Id, "Confirm your account",
+                    "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
+
+                if (user.EmailConfirmed)
+                {
+                    IdentityHelper.SignIn(manager, user, isPersistent: false);
+                    IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                }
+                else
+                {
+                    StatusMessage.Text = "An email has been sent to your account. Please view the email and confirm your account to complete the registration process.";
+                }
             }
             else
             {

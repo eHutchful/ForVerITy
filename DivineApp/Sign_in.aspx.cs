@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using DivineApp.Contexts;
+using DivineApp.Models;
 
 namespace DivineApp
 {
@@ -37,14 +39,15 @@ namespace DivineApp
 
             //RegisterAsyncTask(new PageAsyncTask(authenticate));
 
-            var userStore = new UserStore<IdentityUser>();
-            var userManager = new UserManager<IdentityUser>(userStore);
-            var user = userManager.Find(u_name.Text, pass.Text);
+            var context = new MyContext();
+            var userStore = new UserStore<CompanyUser>(context);
+            var manager = new UserManager<CompanyUser>(userStore);
+            var user = manager.Find(u_name.Text, pass.Text);
 
             if (user != null)
             {
                 var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
-                var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+                var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
 
                 authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, userIdentity);
                 Response.Redirect("~/Dashboard.aspx");
