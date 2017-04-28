@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,6 +9,13 @@ namespace DivineApp.Models
 {
     public static class IdentityHelper
     {
+        public static void SignIn(UserManager<CompanyUser> manager, CompanyUser user, bool isPersistent)
+        {
+            IAuthenticationManager authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            authenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+            var identity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+            authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
+        }
         // Used for XSRF when linking external logins
         public const string XsrfKey = "XsrfId";
 

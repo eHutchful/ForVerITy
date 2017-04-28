@@ -1,7 +1,9 @@
-﻿using DivineApp.Contexts;
+﻿using DivineApp.App_Start;
+using DivineApp.Contexts;
 using DivineApp.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Newtonsoft.Json;
 using System;
@@ -54,22 +56,24 @@ namespace DivineApp
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //RegisterAsyncTask(new PageAsyncTask(register));
-            var context = new MyContext();
-            var userStore = new UserStore<CompanyUser>(context);
-            
-            var manager = new UserManager<CompanyUser>(userStore);
             var user = new CompanyUser()
             {
                 UserName = u_name.Text,
                 Email = email.Text,
-                PhoneNumber= phone.Text,
+                PhoneNumber = phone.Text,
                 Address = c_address.Text,
                 CompanyName = company.Text,
                 FirstName = f_name.Text,
                 LastName = l_name.Text,
                 Location = location.Text
             };
+            //RegisterAsyncTask(new PageAsyncTask(register));
+            var context = new MyContext();
+            //var userStore = new UserStore<CompanyUser>(context);
+           // var manager = new UserManager<CompanyUser>(userStore);
+            var manager = Context.GetOwinContext().GetUserManager<CompanyUserManager>();
+            
+            
             IdentityResult result = manager.Create(user, pass.Text);
             if (result.Succeeded)
             {

@@ -15,8 +15,7 @@
     <AssemblyName>DivineApp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>
-    </IISExpressSSLPort>
+    <IISExpressSSLPort>44321</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -423,6 +422,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CompanyUser.cs" />
+    <Compile Include="Models\CompanyUserStore.cs" />
     <Compile Include="Models\IdentityHelper.cs" />
     <Compile Include="Sign_up.aspx.cs">
       <DependentUpon>Sign_up.aspx</DependentUpon>

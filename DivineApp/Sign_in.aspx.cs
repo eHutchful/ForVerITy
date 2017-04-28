@@ -13,6 +13,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using DivineApp.Contexts;
 using DivineApp.Models;
+using Microsoft.AspNet.Identity.Owin;
+using DivineApp.App_Start;
 
 namespace DivineApp
 {
@@ -26,6 +28,7 @@ namespace DivineApp
                 if (User.Identity.IsAuthenticated)
                 {
                     //what to do when authenticated
+                    Response.Redirect("~/Dashboard.aspx");
                 }
                 else
                 {
@@ -38,24 +41,68 @@ namespace DivineApp
         {
 
             //RegisterAsyncTask(new PageAsyncTask(authenticate));
+            #region oldcode
+            //var context = new MyContext();
+            //var userStore = new UserStore<CompanyUser>(context);
+            //var manager = new UserManager<CompanyUser>(userStore);
+            //var user = manager.Find(u_name.Text, pass.Text);
 
-            var context = new MyContext();
-            var userStore = new UserStore<CompanyUser>(context);
-            var manager = new UserManager<CompanyUser>(userStore);
-            var user = manager.Find(u_name.Text, pass.Text);
+            //if (user != null)
+            //{
+            //    var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            //    var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
 
-            if (user != null)
+            //    authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, userIdentity);
+            //    Response.Redirect("~/Dashboard.aspx");
+            //}
+            //else
+            //{
+            //   // StatusText.Text = "Invalid username or password.";
+            //    //LoginStatus.Visible = true;
+            //}
+            #endregion
+
+            if (IsValid)
             {
-                var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
-                var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+                //Validate user password
+                var manager = Context.GetOwinContext().GetUserManager<CompanyUserManager>();
+                var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
 
-                authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, userIdentity);
-                Response.Redirect("~/Dashboard.aspx");
-            }
-            else
-            {
-               // StatusText.Text = "Invalid username or password.";
-                //LoginStatus.Visible = true;
+                //Require email confirmation
+                var user = manager.FindByName(u_name.Text);
+                if (user != null)
+                {
+                    if (!user.EmailConfirmed)
+                    {
+                        StatusText.Text = "Invalid login attempt. You must have a confirmed email account.";
+                    }
+                    else
+                    {
+                        var result = signinManager.PasswordSignIn(u_name.Text,pass.Text, false, shouldLockout: false);
+
+                        switch (result)
+                        {
+                            case SignInStatus.Success:
+                                //IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                                Response.Redirect("~/Dashboard.aspx");
+                                break;
+                            case SignInStatus.LockedOut:
+                                Response.Redirect("/Account/Lockout");
+                                break;
+                            case SignInStatus.RequiresVerification:
+                                Response.Redirect(String.Format("/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}",
+                                                            Request.QueryString["ReturnUrl"],
+                                                            false),
+                                              true);
+                                break;
+                            case SignInStatus.Failure:
+                            default:
+                                StatusText.Text = "Invalid login attempt";
+                                break;
+                        }
+                    }
+                }
+
             }
         }
 

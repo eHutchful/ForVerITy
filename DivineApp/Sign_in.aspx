@@ -72,6 +72,7 @@
                 <asp:RequiredFieldValidator ID="passValidator" runat="server" Text="Password Required!" ControlToValidate="pass" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
       
             <asp:Button ID="Button1" runat="server" Text="LOGIN" style="background: #00597d;color:white;" OnClick="Button1_Click"/>
+                <asp:Label ID="StatusText" runat="server" Text="" ForeColor="Red" Font-Bold="true"></asp:Label>
       <p class="message">Not registered? <a href="Sign_up.aspx">Create an account</a></p>
     </div>
         </div>
