@@ -15,5 +15,10 @@ namespace DivineApp.Contexts
         {
             base.OnModelCreating(modelBuilder);
         }
+        public static MyContext Create()
+        {
+            return new MyContext();
+        }
+
     }
 }

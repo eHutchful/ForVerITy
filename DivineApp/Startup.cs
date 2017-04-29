@@ -4,6 +4,8 @@ using Microsoft.Owin;
 using Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.AspNet.Identity;
+using DivineApp.App_Start;
+using DivineApp.Contexts;
 
 [assembly: OwinStartup(typeof(DivineApp.Startup))]
 
@@ -19,6 +21,10 @@ namespace DivineApp
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Sign_in")
             });
+
+            app.CreatePerOwinContext(MyContext.Create);
+            app.CreatePerOwinContext<CompanyUserManager>(CompanyUserManager.Create);
+            app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
         }
     }
 }

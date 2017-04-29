@@ -76,13 +76,13 @@ Divine Verities|Sign Up</title>
       
             <asp:TextBox ID="pass" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
             <asp:TextBox ID="c_pass" runat="server" placeholder="Confirm Password" TextMode="Password"></asp:TextBox>
-      
-            <asp:Button ID="Button1" runat="server" Text="LOGIN" style="background: #00597d;color:white;" OnClick="Button1_Click"/>
+            <asp:Label ID="StatusMessage" runat="server" Text="" ForeColor="Red" Font-Bold="true"></asp:Label>
+            <asp:Button ID="Button1" runat="server" Text="SIGN-UP" style="background: #00597d;color:white;" OnClick="Button1_Click"/>
       
                 <p class="message">Already registered? <a href="Sign_in.aspx">Sign In</a></p>
     </div>
         </div>
-            <asp:Label ID="StatusMessage" runat="server" Text=""></asp:Label>
+            
     </div>
          <!-- Footer -->
     <footer class="text-center">
