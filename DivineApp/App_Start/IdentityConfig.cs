@@ -29,7 +29,7 @@ namespace DivineApp.App_Start
         {
             var myMessage = new SendGridMessage();
             myMessage.AddTo(message.Destination);
-            myMessage.From = new System.Net.Mail.MailAddress("VerityEmail", "Verity Solutions");
+            myMessage.From = new System.Net.Mail.MailAddress("veritysolutions2017@outlook.com", "Verity Solutions");
             myMessage.Subject = message.Subject;
             myMessage.Text = message.Body;
 
