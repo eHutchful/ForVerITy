@@ -66,7 +66,10 @@ namespace DivineApp.App_Start
 
         public static CompanyUserManager Create(IdentityFactoryOptions<CompanyUserManager> options, IOwinContext context)
         {
-            var manager = new CompanyUserManager(new UserStore<CompanyUser>(context.Get<MyContext>()));
+            
+            var textx = context.Get<MyContext>();
+            var userstore = new UserStore<CompanyUser>(textx);
+            var manager = new CompanyUserManager(userstore);
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<CompanyUser>(manager)
             {
