@@ -36,6 +36,7 @@ Divine Verities|Sign Up</title>
     <style>
         .now{
             margin-top:70px;
+
         }
     </style>
 </head>
