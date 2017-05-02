@@ -96,15 +96,15 @@
                   <%--<br />
                   <br />--%>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
+                  <li><a href="#"><i class="fa fa-home"></i> Home <%--<span class="fa fa-chevron-down"></span>--%></a>
+                    <%--<ul class="nav child_menu">
                       <li><a href="index.html">Dashboard</a></li>
                       <li><a href="index2.html">Dashboard2</a></li>
                       <li><a href="index3.html">Dashboard3</a></li>
-                    </ul>
+                    </ul>--%>
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
+                  <li><a href="Upload.aspx"><i class="fa fa-edit"></i>Upload<%--<span class="fa fa-chevron-down"></span>--%></a>
+                   <%-- <ul class="nav child_menu">
                       <li><a href="form.html">General Form</a></li>
                       <li><a href="form_advanced.html">Advanced Components</a></li>
                       <li><a href="form_validation.html">Form Validation</a></li>
@@ -145,7 +145,7 @@
                     <ul class="nav child_menu">
                       <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
                       <li><a href="fixed_footer.html">Fixed Footer</a></li>
-                    </ul>
+                    </ul>--%>
                   </li>
                 </ul>
               </div>
@@ -227,12 +227,12 @@
                           <table id="datatable-keytable" class="table table-striped table-bordered">
                             <thead>
                               <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>File Name</th>
+                                <th>Duration</th>
+                                <th>File Size</th>
+                                <th>Date Uploaded</th>
+                                <th>Album</th>
+                                <th>Price</th>
                               </tr>
                             </thead>
 
