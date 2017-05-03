@@ -1,12 +1,9 @@
 ﻿using Microsoft.AspNet.Identity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Threading.Tasks;
 using SendGrid;
 using System.Net;
-using System.Configuration;
+
 using System.Diagnostics;
 using DivineApp.Models;
 using Microsoft.AspNet.Identity.Owin;
@@ -15,6 +12,7 @@ using Microsoft.Owin;
 using DivineApp.Contexts;
 using Microsoft.Owin.Security;
 using System.Security.Claims;
+using Microsoft.Azure;
 
 namespace DivineApp.App_Start
 {
@@ -33,9 +31,10 @@ namespace DivineApp.App_Start
             myMessage.Subject = message.Subject;
             myMessage.Text = message.Body;
 
+            
             var credentials = new NetworkCredential(
-                ConfigurationManager.AppSettings["emailServiceUserName"],
-                ConfigurationManager.AppSettings["emailServicePassword"]
+                CloudConfigurationManager.GetSetting("emailServiceUserName"),
+                CloudConfigurationManager.GetSetting("emailServicePassword")
                 );
             var transportWeb = new Web(credentials);
             if(transportWeb != null)
