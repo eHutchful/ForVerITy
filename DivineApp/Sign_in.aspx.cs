@@ -28,7 +28,7 @@ namespace DivineApp
                 if (User.Identity.IsAuthenticated)
                 {
                     //what to do when authenticated
-                    Response.Redirect("~/Dashboard.aspx");
+                    Response.Redirect("~/Dashboard/Tables.aspx");
                 }
                 else
                 {

@@ -13,6 +13,7 @@ using DivineApp.Contexts;
 using Microsoft.Owin.Security;
 using System.Security.Claims;
 using Microsoft.Azure;
+using System.Configuration;
 
 namespace DivineApp.App_Start
 {
@@ -33,8 +34,8 @@ namespace DivineApp.App_Start
 
             
             var credentials = new NetworkCredential(
-                CloudConfigurationManager.GetSetting("emailServiceUserName"),
-                CloudConfigurationManager.GetSetting("emailServicePassword")
+                ConfigurationManager.AppSettings["emailServiceUserName"],
+                ConfigurationManager.AppSettings["emailServicePassword"]
                 );
             var transportWeb = new Web(credentials);
             if(transportWeb != null)

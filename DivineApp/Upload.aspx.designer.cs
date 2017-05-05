@@ -10,7 +10,7 @@
 namespace DivineApp {
     
     
-    public partial class Dashboard {
+    public partial class Upload {
         
         /// <summary>
         /// form1 control.
