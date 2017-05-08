@@ -31,6 +31,24 @@ namespace DivineApp {
         protected global::System.Web.UI.WebControls.Label welcomeNote;
         
         /// <summary>
+        /// home control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton home;
+        
+        /// <summary>
+        /// upload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton upload;
+        
+        /// <summary>
         /// logout control.
         /// </summary>
         /// <remarks>
@@ -65,6 +83,15 @@ namespace DivineApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdateProgress upContentpgr;
+        
+        /// <summary>
+        /// divContentPlaceHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divContentPlaceHolder;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

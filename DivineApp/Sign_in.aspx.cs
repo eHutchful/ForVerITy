@@ -84,10 +84,10 @@ namespace DivineApp
                         {
                             case SignInStatus.Success:
                                 //IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-                                Response.Redirect("~/Dashboard.aspx");
+                                Response.Redirect("~/Dashboard/Tables.aspx");
                                 break;
                             case SignInStatus.LockedOut:
-                                Response.Redirect("/Account/Lockout");
+                                Response.Redirect("/Account/Lockout.apsx");
                                 break;
                             case SignInStatus.RequiresVerification:
                                 Response.Redirect(String.Format("/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}",

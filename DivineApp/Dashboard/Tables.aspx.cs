@@ -11,7 +11,11 @@ namespace DivineApp.Dashboard
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.AsyncMode = true;
+            if (!User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/Sign_in.aspx");
+            }
         }
     }
 }

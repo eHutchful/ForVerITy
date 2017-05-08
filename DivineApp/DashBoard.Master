@@ -17,6 +17,7 @@
     <!-- iCheck -->
     <link href="/vendor/iCheck/skins/flat/green.css" rel="stylesheet" />
     <link href="/css/style.css" rel="stylesheet" />
+    <link href="css/overlay.css" rel="stylesheet" />
     <!-- Datatables -->
     <link href="/vendor/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet" />
     <link href="/vendor/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet" />
@@ -91,11 +92,11 @@
                                 <br />
                                 <br />
                                 <ul class="nav side-menu">
-                                    <li>
-                                        <a href="#"><i class="fa fa-home"></i>Home</a>
+                                    <li>                                        
+                                        <asp:LinkButton ID="home" runat="server" OnClick="home_Click">Home</asp:LinkButton>
                                     </li>
                                     <li>
-                                        <a href="/Dashboard/AudioUpload.aspx"><i class="fa fa-edit"></i>Upload</a>
+                                        <asp:LinkButton ID="upload" runat="server" OnClick="upload_Click">Upload</asp:LinkButton>
                                     </li>
                                 </ul>
                             </div>
@@ -151,19 +152,26 @@
                 <%--Content Section  --%>
                 <div style="height:600px;">
                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
                         <ContentTemplate>
                             <asp:UpdateProgress ID="upContentpgr" runat="server">
                                 <ProgressTemplate>
-                                    Loading...
+                                    <asp:Panel ID="Panel1" CssClass="overlay" runat="server">
+                                        <asp:Panel ID="Panel2" CssClass="loader" runat="server">
+                                            <center><img src="img/loading1.gif" runat="server" /></center>
+                                        </asp:Panel>
+                                    </asp:Panel>                                   
                                 </ProgressTemplate>
                             </asp:UpdateProgress>
-                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            <div id="divContentPlaceHolder" runat="server" class="ContentPlaceHolder">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 
-                            </asp:ContentPlaceHolder>
+                                </asp:ContentPlaceHolder>
+                            </div>
                         </ContentTemplate>
                         <Triggers>
-                            <asp:AsyncPostbackTrigger ControlID="logout" EventName="click" />
+                            <asp:AsyncPostbackTrigger ControlID="home" EventName="click" />
+                            <asp:AsyncPostbackTrigger ControlID="upload" EventName="click" />
                         </Triggers>
                     </asp:UpdatePanel>
                     
