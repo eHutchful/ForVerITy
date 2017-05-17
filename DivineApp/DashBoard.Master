@@ -98,6 +98,9 @@
                                     <li>
                                         <asp:LinkButton ID="upload" runat="server" OnClick="upload_Click">Upload</asp:LinkButton>
                                     </li>
+                                     <li>
+                                        <asp:LinkButton ID="announcements" runat="server" OnClick="announcements_Click">Announcements</asp:LinkButton>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

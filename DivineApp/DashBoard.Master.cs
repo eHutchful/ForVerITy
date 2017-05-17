@@ -40,5 +40,10 @@ namespace DivineApp
         {
             Response.Redirect("~/Dashboard/AudioUpload.aspx");
         }
+
+        protected void announcements_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Dashboard/Announcements.aspx");
+        }
     }
 }

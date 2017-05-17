@@ -180,6 +180,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="css\freelancer.css" />
     <Content Include="css\overlay.css" />
+    <Content Include="Dashboard\Announcements.aspx" />
     <Content Include="Dashboard\AudioUpload.aspx" />
     <Content Include="Dashboard\Tables.aspx" />
     <Content Include="Default.aspx" />
@@ -489,6 +490,13 @@
     </Compile>
     <Compile Include="DashBoard.Master.designer.cs">
       <DependentUpon>DashBoard.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\Announcements.aspx.cs">
+      <DependentUpon>Announcements.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard\Announcements.aspx.designer.cs">
+      <DependentUpon>Announcements.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dashboard\AudioUpload.aspx.cs">
       <DependentUpon>AudioUpload.aspx</DependentUpon>

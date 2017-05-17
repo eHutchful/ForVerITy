@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.WindowsAzure.Storage.RetryPolicies;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -12,7 +13,6 @@ using System.ServiceModel.Syndication;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -39,6 +39,7 @@ namespace DivineApp.Dashboard
                 trigger = new PostBackTrigger();
                 trigger.ControlID = btnVUpload.UniqueID;
                 this.AsyncMode = true;
+                
                 var storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["StorageConnectionString"]);
                 client = storageAccount.CreateCloudBlobClient();
                 string CurrentUserId = HttpContext.Current.User.Identity.GetUserId();
@@ -53,30 +54,30 @@ namespace DivineApp.Dashboard
             if (upload_file.HasFile)
             {
                 try
-                { 
+                {
+                    
                     var container = client.GetContainerReference(companyName.ToLower());
                     var blob = container.GetBlockBlobReference("audios/"+upload_file.FileName);
-                    blob.UploadFromStream(upload_file.FileContent);
-                    uri = new Uri("http://versolstore.blob.core.windows.net/" + companyName.ToLower() + "/audios/" + upload_file.FileName);
                     if (album_art.HasFile)
                     {
                         blob = container.GetBlockBlobReference("images/" + album_art.FileName);
                         blob.UploadFromStream(album_art.FileContent);
                         uri2 = new Uri("http://versolstore.blob.core.windows.net/" + companyName.ToLower() + "/images/" + album_art.FileName);
-                        
-                    }
 
-                    RegisterAsyncTask(new PageAsyncTask(UpdateSyndicationFeed));
-                    
+                    }
+                    blob.UploadFromStream(upload_file.FileContent);
+                    uri = new Uri("http://versolstore.blob.core.windows.net/" + companyName.ToLower() + "/audios/" + upload_file.FileName);
+                    UpdateSyndicationFeed();
                 }
                 catch { }
+
             }
             else
             {
 
             }
         }
-        private async Task UpdateSyndicationFeed()
+        private void UpdateSyndicationFeed()
         {
             //See if feed is already in the cache
             List<SyndicationItem> items = Cache["AudiosFeed"] as List<SyndicationItem>;
@@ -86,7 +87,7 @@ namespace DivineApp.Dashboard
                 var blob = container.GetBlockBlobReference("audios/"+"audio.rss");
                 using (MemoryStream ms = new MemoryStream())
                 {
-                    await blob.DownloadToStreamAsync(ms);
+                    blob.DownloadToStream(ms);
                     StreamReader reader = new StreamReader(ms);
                     if (reader != null)
                     {
@@ -112,6 +113,8 @@ namespace DivineApp.Dashboard
                     item.ElementExtensions.Add(new SyndicationElementExtension("subtitle", itunesNs.NamespaceName, subtitle.Text));
                     item.ElementExtensions.Add(
                            new XElement(itunesNs + "image", new XAttribute("href",uri2.ToString())));
+                    item.ElementExtensions.Add(new SyndicationElementExtension("Size", null, upload_file.PostedFile.ContentLength / 1000000));
+                    
                     item.Summary = TextSyndicationContent.CreatePlaintextContent(description.Text);
                     item.Categories.Add(new SyndicationCategory(category.Text));
                     SyndicationLink enclosure = SyndicationLink.CreateMediaEnclosureLink(uri, "audio/mpeg", upload_file.PostedFile.ContentLength); 
@@ -134,7 +137,7 @@ namespace DivineApp.Dashboard
                     rssFormatter.WriteTo(feedWriter);
                     feedWriter.Close();
 
-                    await blob.UploadFromByteArrayAsync(ms1.ToArray(), 0, ms1.ToArray().Length);
+                    blob.UploadFromByteArray(ms1.ToArray(), 0, ms1.ToArray().Length);
                     ms1.Close();
                 }
                 Cache.Insert("AudiosFeed",
@@ -160,7 +163,7 @@ namespace DivineApp.Dashboard
                         blob.UploadFromStream(vImageUpload.FileContent);
                         uri2 = new Uri("http://versolstore.blob.core.windows.net/" + companyName.ToLower() + "/videos/" + vImageUpload.FileName);
                     }
-                    RegisterAsyncTask(new PageAsyncTask(UpdateVideoSyndicationFeed));
+                    UpdateVideoSyndicationFeed();
 
                 }
                 catch { }
@@ -170,7 +173,7 @@ namespace DivineApp.Dashboard
 
             }
         }
-        private async Task UpdateVideoSyndicationFeed()
+        private void UpdateVideoSyndicationFeed()
         {
             //See if feed is already in the cache
             List<SyndicationItem> items = Cache["VideosFeed"] as List<SyndicationItem>;
@@ -180,7 +183,7 @@ namespace DivineApp.Dashboard
                 var blob = container.GetBlockBlobReference("videos/" + "video.rss");
                 using (MemoryStream ms = new MemoryStream())
                 {
-                    await blob.DownloadToStreamAsync(ms);
+                    blob.DownloadToStream(ms);
                     StreamReader reader = new StreamReader(ms);
                     if (reader != null)
                     {
@@ -204,11 +207,12 @@ namespace DivineApp.Dashboard
                     item.ElementExtensions.Add(new SyndicationElementExtension("explicit", itunesNs.NamespaceName, "no"));
                     item.ElementExtensions.Add(new SyndicationElementExtension("summary", itunesNs.NamespaceName, txtVDescription.Text));
                     item.ElementExtensions.Add(new SyndicationElementExtension("subtitle", itunesNs.NamespaceName, txtVSubtitle.Text));
+                    item.ElementExtensions.Add(new SyndicationElementExtension("Size", null, videoUpload.PostedFile.ContentLength / 1000000));
                     item.ElementExtensions.Add(
                            new XElement(itunesNs + "image", new XAttribute("href", uri2.ToString())));
                     item.Summary = TextSyndicationContent.CreatePlaintextContent(txtVDescription.Text);
                     item.Categories.Add(new SyndicationCategory(txtVCategory.Text));
-                    SyndicationLink enclosure = SyndicationLink.CreateMediaEnclosureLink(uri, "video/mp4", upload_file.PostedFile.ContentLength);
+                    SyndicationLink enclosure = SyndicationLink.CreateMediaEnclosureLink(uri, "video/mp4", videoUpload.PostedFile.ContentLength);
                     item.ElementExtensions.Add(new SyndicationElementExtension("subtitle", itunesNs.NamespaceName, txtVSubtitle.Text));
                     item.Links.Add(enclosure);
 
@@ -228,7 +232,7 @@ namespace DivineApp.Dashboard
                     rssFormatter.WriteTo(feedWriter);
                     feedWriter.Close();
 
-                    await blob.UploadFromByteArrayAsync(ms1.ToArray(), 0, ms1.ToArray().Length);
+                    blob.UploadFromByteArray(ms1.ToArray(), 0, ms1.ToArray().Length);
                     ms1.Close();
                 }
                 Cache.Insert("VideosFeed",

@@ -5,6 +5,7 @@
             <div class="right_col">
                 <div class="x_panel">
                     <div class="x_content" style="height:1080px">
+
                         <h3 style="text-align:center;color:turquoise">File Upload Page</h3>
                         <br />
                         <p style="text-align:center;color:#ffd800">Upload your audio or video files here</p>
